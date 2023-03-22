@@ -1,6 +1,7 @@
-import './styling.scss';
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import "./styling.scss";
+import * as PropTypes from "prop-types";
+import * as React from "react";
+import { useEffect } from "react";
 
 /**
  * --disableLeftArrow takes a function that sets the conditions
@@ -22,29 +23,23 @@ function Arrows(props: {
   disableRightArrow?: boolean;
   rightArrowClass?: string;
   leftArrowClass?: string;
-  handleNextClick: React.MouseEventHandler<HTMLButtonElement>;
-  handlePrevClick: React.MouseEventHandler<HTMLButtonElement>;
+  handleNextClick: VoidFunction;
+  handlePrevClick: VoidFunction;
 }) {
-  // useEffect(() => {
-  //   const click = (e) => {
-  //     if (e.keyCode === 37) {
-  //       e.preventDefault()
-  //       // left arrow
-  //       handlePrevClick
-  //       console.log(e.keyCode)
-  //     }
-  //     if (e.keyCode === 39) {
-  //       e.preventDefault()
-  //       //right arrow
-  //       handleNextClick
-  //       console.log(handleNextClick)
-  //     }
-  //   }
-  //   window.addEventListener('keyup', click, false);
-  //   return function cleanup() {
-  //     window.removeEventListener('keyup', click, false);
-  //   }
-  // });
+  useEffect(() => {
+    // add event listener for arrow keys and change slideIndex
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "ArrowRight") {
+        props.handleNextClick(e);
+      } else if (e.key === "ArrowLeft") {
+        props.handlePrevClick(e);
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return (
     <>
@@ -52,7 +47,7 @@ function Arrows(props: {
         <button
           type="button"
           className={
-            props.rightArrowClass ? props.rightArrowClass : 'rightArrow button'
+            props.rightArrowClass ? props.rightArrowClass : "rightArrow button"
           }
           disabled
         >
@@ -62,7 +57,7 @@ function Arrows(props: {
         <button
           type="button"
           className={
-            props.rightArrowClass ? props.rightArrowClass : 'rightArrow button'
+            props.rightArrowClass ? props.rightArrowClass : "rightArrow button"
           }
           onClick={props.handleNextClick}
         >
@@ -74,7 +69,7 @@ function Arrows(props: {
           type="button"
           disabled
           className={
-            props.leftArrowClass ? props.leftArrowClass : 'leftArrow button'
+            props.leftArrowClass ? props.leftArrowClass : "leftArrow button"
           }
         >
           &larr;
@@ -83,7 +78,7 @@ function Arrows(props: {
         <button
           type="button"
           className={
-            props.leftArrowClass ? props.leftArrowClass : 'leftArrow button'
+            props.leftArrowClass ? props.leftArrowClass : "leftArrow button"
           }
           onClick={props.handlePrevClick}
         >
