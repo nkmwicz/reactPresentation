@@ -2,7 +2,7 @@
 This repository is still in development, but will be available soon. 
 
 Please check back for updates.
-# react_presentation
+# reactPresentation
 
 This repository provides simple react components for creating a basic slide show. The components handle text placement, image placement, etc. programmatically. All you have to do is pass in the text and images. This is best achieved with a state variable of an array of slide objects that can be iterated through with a filter function of a state management system selector (such as a selector in Recoil). There are five primary components: an Introductory `slide`, a split slide (a left box for text and a right box for an image), a centered slice (takes an array of images or an array of text), a split slide with a child (in which a map or some other website-oriented object can be rendered), and a splitembed slide (a split slide with embedded content in the right box such as a YouTube video). The components are designed to be used with a state variable that determines what is displayed on the screen. The state variable is an array of objects. Each object represents a slide. The intro slide is a simple slide with a title and a subtitle. The split slide has a left box for text and a right box for an image. The centered slide has an array of images that are displayed in a row. The child slide is for rendering a map or some other website-oriented object. The slides are rendered in the order that they are in the array. 
 
