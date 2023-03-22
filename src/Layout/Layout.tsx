@@ -1,9 +1,10 @@
-import * as React from 'react';
-import Intro from './Intro/Intro';
-import SplitSlide from './SplitSlide';
-import Arrows from './Arrows';
-import CenteredSlide from './CenteredSlide';
-import SplitSlideEmbed from './SplitSlideEmbed';
+import * as React from "react";
+import Intro from "../Intro/Intro";
+import SplitSlide from "../SplitSlide/SplitSlide";
+import Arrows from "../Arrows/Arrows";
+import CenteredSlide from "../CenteredSlide/CenteredSlide";
+import SplitSlideEmbed from "../SplitSlideEmbed/SplitSlideEmbed";
+import { LayoutTypes } from "./Layout.types";
 
 /**
  * Layout is a default layout that uses takes a state array that follows the data model
@@ -12,42 +13,6 @@ import SplitSlideEmbed from './SplitSlideEmbed';
  * --ImagesToCache takes an array of images that should be
  * cached so they will be available before
  */
-interface LayoutTypes {
-  slide: {
-    title: string;
-    subTitle?: string;
-    byLine?: string;
-    intro?: boolean;
-    split?: boolean;
-    centered?: boolean;
-    splitEmbed?: boolean;
-    text?: Array<{
-      text: string;
-      color: string;
-      children?: Array<{ text: string; color: string }>;
-    }>;
-    image?: { image: string; description: string; alt: string };
-    images?: Array<{
-      image: string;
-      description: string;
-      flex: number;
-      alt: string;
-    }>;
-    embed?: { url: string; title: string };
-  };
-  bgColor?: string;
-  nextClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  prevClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  h1Class?: string | undefined;
-  headerClass?: string;
-  leftBoxClass?: string;
-  rightBoxClass?: string;
-  imgBoxClass?: string;
-  contentBoxClass?: string;
-  contentTextClass?: string;
-  imageArrayBoxClass?: string;
-  bgImage?: React.CSSProperties['backgroundImage'];
-}
 
 function Layout({
   slide,
@@ -62,10 +27,11 @@ function Layout({
   leftBoxClass,
   contentBoxClass,
   contentTextClass,
-  imageArrayBoxClass
+  imageArrayBoxClass,
+  mode
 }: LayoutTypes): JSX.Element {
   return (
-    <div className="main">
+    <div className={mode === "dark" ? "mainDark" : "main"}>
       <Arrows handleNextClick={nextClick} handlePrevClick={prevClick} />
       {slide.intro && (
         <Intro

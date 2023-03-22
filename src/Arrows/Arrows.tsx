@@ -1,7 +1,8 @@
-import "./styling.scss";
+import "../styling.scss";
 import * as PropTypes from "prop-types";
 import * as React from "react";
 import { useEffect } from "react";
+import { ArrowsProps } from "./Arrows.types";
 
 /**
  * --disableLeftArrow takes a function that sets the conditions
@@ -18,21 +19,21 @@ import { useEffect } from "react";
  * stateArray that will determine the current slide state.
  */
 
-function Arrows(props: {
-  disableLeftArrow?: boolean;
-  disableRightArrow?: boolean;
-  rightArrowClass?: string;
-  leftArrowClass?: string;
-  handleNextClick: VoidFunction;
-  handlePrevClick: VoidFunction;
-}) {
+function Arrows({
+  disableLeftArrow,
+  disableRightArrow,
+  rightArrowClass,
+  leftArrowClass,
+  handleNextClick,
+  handlePrevClick
+}: ArrowsProps): JSX.Element {
   useEffect(() => {
     // add event listener for arrow keys and change slideIndex
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "ArrowRight") {
-        props.handleNextClick(e);
+        handleNextClick(e);
       } else if (e.key === "ArrowLeft") {
-        props.handlePrevClick(e);
+        handlePrevClick(e);
       }
     }
     window.addEventListener("keydown", handleKeyDown);
@@ -43,12 +44,10 @@ function Arrows(props: {
 
   return (
     <>
-      {props.disableRightArrow ? (
+      {disableRightArrow ? (
         <button
           type="button"
-          className={
-            props.rightArrowClass ? props.rightArrowClass : "rightArrow button"
-          }
+          className={rightArrowClass ? rightArrowClass : "rightArrow button"}
           disabled
         >
           &rarr;
@@ -56,31 +55,25 @@ function Arrows(props: {
       ) : (
         <button
           type="button"
-          className={
-            props.rightArrowClass ? props.rightArrowClass : "rightArrow button"
-          }
-          onClick={props.handleNextClick}
+          className={rightArrowClass ? rightArrowClass : "rightArrow button"}
+          onClick={handleNextClick}
         >
           &rarr;
         </button>
       )}
-      {props.disableLeftArrow ? (
+      {disableLeftArrow ? (
         <button
           type="button"
           disabled
-          className={
-            props.leftArrowClass ? props.leftArrowClass : "leftArrow button"
-          }
+          className={leftArrowClass ? leftArrowClass : "leftArrow button"}
         >
           &larr;
         </button>
       ) : (
         <button
           type="button"
-          className={
-            props.leftArrowClass ? props.leftArrowClass : "leftArrow button"
-          }
-          onClick={props.handlePrevClick}
+          className={leftArrowClass ? leftArrowClass : "leftArrow button"}
+          onClick={handlePrevClick}
         >
           &larr;
         </button>

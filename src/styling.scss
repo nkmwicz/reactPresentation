@@ -27,10 +27,22 @@ li {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  color: rgb(150, 147, 144);
-  // color: black;
+  color: black;
+  background-color: rgb(236, 235, 234);
+  z-index: 2;
+}
+
+.mainDark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: lightgrey;
   background-color: black;
-  // background-color: rgb(236, 235, 234);
   z-index: 2;
 }
 
@@ -198,7 +210,6 @@ button:disabled {
 
 .content-box{
   position: absolute;
-  width: 100vw;
   height: 80%;
   padding: 0 calc(35px + 1.2vw);
   top: 15%;

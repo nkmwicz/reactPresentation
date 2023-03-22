@@ -1,6 +1,7 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import './styling.scss';
+import * as React from "react";
+import * as PropTypes from "prop-types";
+import "../styling.scss";
+import { SplitSlideChildProps } from "./SplitSlideChild.types";
 
 /**
  * SplitSlideChild operates similarly to splitSlide, but instead
@@ -20,18 +21,6 @@ import './styling.scss';
  * -- ref,
   rightChildBoxClass
  */
-interface SplitSlideChildProps {
-  headerClass?: string;
-  h1Class?: string;
-  title?: string;
-  subTitle?: string;
-  leftBoxClass?: string;
-  textArray?: Array<{ text: string; color: string }>;
-  children?: React.ReactNode;
-  ref?: React.RefObject<HTMLDivElement>;
-  rightChildBoxClass?: string;
-  childComponent?: React.ReactNode;
-}
 
 function SplitSlideChild({
   headerClass,
@@ -39,7 +28,7 @@ function SplitSlideChild({
   title,
   subTitle,
   leftBoxClass,
-  textArray,
+  text,
   children,
   ref,
   rightChildBoxClass,
@@ -48,8 +37,8 @@ function SplitSlideChild({
   return (
     <div>
       <div className={`${headerClass} header`}>
-        <h1 className={h1Class ? h1Class : ''}>
-          {title}{' '}
+        <h1 className={h1Class ? h1Class : ""}>
+          {title}
           {subTitle ? (
             <>
               <br /> {subTitle}
@@ -58,9 +47,9 @@ function SplitSlideChild({
         </h1>
       </div>
       <div className="split-container">
-        <div className={leftBoxClass ? leftBoxClass : 'left-box'}>
-          {textArray &&
-            textArray.map((a, i) => {
+        <div className={leftBoxClass ? leftBoxClass : "left-box"}>
+          {text &&
+            text.map((a: { text: string; color: string }, i: number) => {
               return (
                 <p key={`SSCtextArrayP${i}`} style={{ color: a.color }}>
                   {a.text}
@@ -73,7 +62,7 @@ function SplitSlideChild({
           className={
             rightChildBoxClass
               ? `${rightChildBoxClass} right-child-box`
-              : 'right-child-box'
+              : "right-child-box"
           }
         >
           {childComponent || children}

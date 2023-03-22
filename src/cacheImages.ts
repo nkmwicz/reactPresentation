@@ -18,14 +18,14 @@
 //   const results = await Promise.allSettled(promises);
 //   results.forEach(result => console.log(result.status));
 // };
-function cacheImages({ images }: { images: Array<string>; }): Promise<Array<unknown>> {
+function cacheImages( images : Array<string>): Promise<Array<unknown>> {
   return Promise.all(
     images.map((image: string) => {
       return new Promise((resolve, reject) => {
         const img: HTMLImageElement = new Image();
         img.src = image;
-        if (img.onload) console.log("onload"); resolve(image);
-        if (img.onerror) console.log("onerror"); reject();
+        img.onload = resolve(image);
+        img.onerror = reject();
       });
     })
   );

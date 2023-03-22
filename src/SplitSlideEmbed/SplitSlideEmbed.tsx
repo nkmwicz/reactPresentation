@@ -1,6 +1,6 @@
-import * as React from 'react';
-import './styling.scss';
-
+import * as React from "react";
+import "../styling.scss";
+import { SplitSlideEmbedProps } from "./SplitSlideEmbed.types";
 /**
  * SplitSlideChild operates similarly to splitSlide, but instead
  * of taking an image for the right box, it takes a child for
@@ -19,18 +19,6 @@ import './styling.scss';
  * -- ref,
   rightChildBoxClass
  */
-interface SplitSlideChildProps {
-  headerClass?: string;
-  h1Class?: string;
-  title?: string;
-  subTitle?: string;
-  leftBoxClass?: string;
-  textArray?: Array<{ text: string; color: string }>;
-  children?: React.ReactNode;
-  ref?: React.RefObject<HTMLDivElement>;
-  rightChildBoxClass?: string;
-  embed?: { url: string; title: string };
-}
 
 function SplitSlideEmbed({
   headerClass,
@@ -41,12 +29,12 @@ function SplitSlideEmbed({
   textArray,
   rightChildBoxClass,
   embed
-}: SplitSlideChildProps) {
+}: SplitSlideEmbedProps) {
   return (
     <div>
       <div className={`${headerClass} header`}>
-        <h1 className={h1Class ? h1Class : ''}>
-          {title}{' '}
+        <h1 className={h1Class ? h1Class : ""}>
+          {title}{" "}
           {subTitle ? (
             <>
               <br /> {subTitle}
@@ -55,7 +43,7 @@ function SplitSlideEmbed({
         </h1>
       </div>
       <div className="split-container">
-        <div className={leftBoxClass ? leftBoxClass : 'left-box'}>
+        <div className={leftBoxClass ? leftBoxClass : "left-box"}>
           {textArray &&
             textArray.map((a, i) => {
               return (
@@ -67,7 +55,7 @@ function SplitSlideEmbed({
         </div>
         <div
           className={
-            rightChildBoxClass ? `${rightChildBoxClass} right-box` : 'right-box'
+            rightChildBoxClass ? `${rightChildBoxClass} right-box` : "right-box"
           }
         >
           {embed && (

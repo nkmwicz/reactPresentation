@@ -1,5 +1,6 @@
-import * as React from 'react';
-import './styling.scss';
+import * as React from "react";
+import { CenteredSlideProps } from "./CenteredSlide.types";
+import "../styling.scss";
 
 /**
  * --headerClass is a class
@@ -19,32 +20,12 @@ function CenteredSlide({
   contentBoxClass,
   contentTextClass,
   imageArrayBoxClass
-}: {
-  headerClass?: string;
-  title: string;
-  subTitle?: string;
-  images?: Array<{
-    flex: number;
-    image: string | null;
-    description: string;
-  }>;
-  text?: Array<{
-    text: string;
-    color: string;
-    children?: Array<{
-      text: string;
-      color: string;
-    }>;
-  }>;
-  contentBoxClass?: string;
-  contentTextClass?: string;
-  imageArrayBoxClass?: string;
-}) {
+}: CenteredSlideProps) {
   return (
     <div className="cover">
       <div className={`${headerClass} header`}>
         <h1>
-          {title}{' '}
+          {title}{" "}
           {subTitle ? (
             <>
               <br /> {subTitle}
