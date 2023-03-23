@@ -43,31 +43,38 @@ function SplitSlideEmbed({
         </h1>
       </div>
       <div className="split-container">
-        <div className={leftBoxClass ? leftBoxClass : "left-box"}>
-          {textArray &&
-            textArray.map((a, i) => {
-              return (
-                <p key={`SSEtextArray${i}`} style={{ color: a.color }}>
-                  {a.text}
-                </p>
-              );
-            })}
-        </div>
-        <div
-          className={
-            rightChildBoxClass ? `${rightChildBoxClass} right-box` : "right-box"
-          }
-        >
-          {embed && (
-            <div className="ratio ratio-16x9 embed-box">
-              <iframe
-                src={embed.url}
-                title={embed.title}
-                allowFullScreen
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              />
-            </div>
-          )}
+        <div className="split-container-wrapper">
+          <div className={leftBoxClass ? leftBoxClass : "left-box"}>
+            {textArray &&
+              textArray.map((a, i) => {
+                return (
+                  <p key={`SSEtextArray${i}`} style={{ color: a.color }}>
+                    {a.text}
+                  </p>
+                );
+              })}
+          </div>
+          <div
+            className={
+              rightChildBoxClass
+                ? `${rightChildBoxClass} right-box`
+                : "right-box"
+            }
+          >
+            {embed && (
+              <div className="img-right-box">
+                {/* <div className="embed-container"> */}
+                <iframe
+                  className="responsive-iframe"
+                  src={embed.url}
+                  title={embed.title}
+                  allowFullScreen
+                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                />
+              </div>
+              // </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

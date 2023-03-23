@@ -47,25 +47,27 @@ function SplitSlideChild({
         </h1>
       </div>
       <div className="split-container">
-        <div className={leftBoxClass ? leftBoxClass : "left-box"}>
-          {text &&
-            text.map((a: { text: string; color: string }, i: number) => {
-              return (
-                <p key={`SSCtextArrayP${i}`} style={{ color: a.color }}>
-                  {a.text}
-                </p>
-              );
-            })}
-        </div>
-        <div
-          ref={ref}
-          className={
-            rightChildBoxClass
-              ? `${rightChildBoxClass} right-child-box`
-              : "right-child-box"
-          }
-        >
-          {childComponent || children}
+        <div className="split-container-wrapper">
+          <div className={leftBoxClass ? leftBoxClass : "left-box"}>
+            {text &&
+              text.map((a: { text: string; color: string }, i: number) => {
+                return (
+                  <p key={`SSCtextArrayP${i}`} style={{ color: a.color }}>
+                    {a.text}
+                  </p>
+                );
+              })}
+          </div>
+          <div
+            ref={ref}
+            className={
+              rightChildBoxClass
+                ? `${rightChildBoxClass} right-child-box`
+                : "right-child-box"
+            }
+          >
+            {childComponent || children}
+          </div>
         </div>
       </div>
     </div>
