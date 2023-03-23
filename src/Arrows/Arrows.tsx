@@ -31,9 +31,9 @@ function Arrows({
     // add event listener for arrow keys and change slideIndex
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "ArrowRight") {
-        handleNextClick(e);
+        handleNextClick(e as unknown as React.MouseEvent<HTMLButtonElement>);
       } else if (e.key === "ArrowLeft") {
-        handlePrevClick(e);
+        handlePrevClick(e as unknown as React.MouseEvent<HTMLButtonElement>);
       }
     }
     window.addEventListener("keydown", handleKeyDown);

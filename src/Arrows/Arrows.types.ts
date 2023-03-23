@@ -3,6 +3,6 @@ export interface ArrowsProps {
   disableRightArrow?: boolean;
   rightArrowClass?: string;
   leftArrowClass?: string;
-  handleNextClick: (event: Event) => void;
-  handlePrevClick: (event: Event) => void;
+  handleNextClick: (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void;
+  handlePrevClick: (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void;
 }
