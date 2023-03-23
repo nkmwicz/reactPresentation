@@ -1,12 +1,14 @@
 export interface LayoutTypes {
   slide: {
-    title: string;
+    title?: string;
     subTitle?: string;
     byLine?: string;
     intro?: boolean;
     split?: boolean;
     centered?: boolean;
     splitEmbed?: boolean;
+    splitText?: boolean;
+    rightText?: string;
     text?: Array<{
       text: string;
       color: string;
@@ -16,16 +18,17 @@ export interface LayoutTypes {
     images?: Array<{
       image: string;
       description: string;
-      flex: number;
+      opacity: number;
       alt: string;
     }>;
     embed?: { url: string; title: string };
   };
   bgColor?: string;
-  nextClick: (event: Event) => void;
-  prevClick: (event: Event) => void;
+  nextClick: (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void;
+  prevClick: (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void;
   h1Class?: string | undefined;
   headerClass?: string;
+  splitText?: string;
   leftBoxClass?: string;
   rightBoxClass?: string;
   imgBoxClass?: string;

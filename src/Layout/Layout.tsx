@@ -5,6 +5,7 @@ import Arrows from "../Arrows/Arrows";
 import CenteredSlide from "../CenteredSlide/CenteredSlide";
 import SplitSlideEmbed from "../SplitSlideEmbed/SplitSlideEmbed";
 import { LayoutTypes } from "./Layout.types";
+import { SplitText } from "../SplitText";
 
 /**
  * Layout is a default layout that uses takes a state array that follows the data model
@@ -78,6 +79,20 @@ function Layout({
           subTitle={slide?.subTitle}
           textArray={slide?.text}
           embed={slide.embed}
+        />
+      )}
+      {slide.splitText && (
+        <SplitText
+          title={slide.title}
+          splitText={slide.rightText}
+          subTitle={slide.subTitle}
+          text={slide.text}
+          image={slide.image}
+          h1Class={h1Class}
+          headerClass={headerClass}
+          leftBoxClass={leftBoxClass}
+          rightBoxClass={rightBoxClass}
+          imgBoxClass={imgBoxClass}
         />
       )}
     </div>
