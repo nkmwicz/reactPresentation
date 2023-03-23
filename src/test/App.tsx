@@ -30,7 +30,6 @@ function App() {
       setSlides(json.slides);
       setIsLoading(false);
       cacheImages(json.images);
-      console.log(json.slides);
     }
     fetchSlides();
     // console.log(json);
