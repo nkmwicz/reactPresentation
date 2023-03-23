@@ -1,10 +1,10 @@
 import React from "react";
-import { Spinner, QuickLayout, Arrows, cacheImages } from "../index";
+import { Spinner, QuickLayout, cacheImages } from "../index";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
   const [slides, setSlides] = React.useState([]);
-  const [slide, setSlide] = React.useState({});
+  const [slide, setSlide] = React.useState({ slide: true, title: "Loading" });
   const [slideIndex, setSlideIndex] = React.useState(0);
 
   React.useEffect(() => {
@@ -14,7 +14,7 @@ function App() {
   React.useEffect(() => {
     async function fetchSlides() {
       const response = await fetch(
-        "https://raw.githubusercontent.com/nkmwicz/content-presentations/main/fhs-2023-fr-ambs.json"
+        "https://raw.githubusercontent.com/nkmwicz/teach-lectures/master/modern-europe/01-introduction.json"
       );
       const json = await response.json();
       setSlides(json.slides);
@@ -25,7 +25,9 @@ function App() {
     // console.log(json);
   }, []);
 
-  function nextSlide(e: Event) {
+  function nextSlide(
+    e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+  ) {
     if (e && slideIndex < slides.length - 1) {
       setSlideIndex(slideIndex + 1);
     }
@@ -34,7 +36,9 @@ function App() {
     }
   }
 
-  function prevSlide(e: Event) {
+  function prevSlide(
+    e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+  ) {
     if (e && slideIndex > 0) {
       setSlideIndex(slideIndex - 1);
     }
@@ -53,16 +57,14 @@ function App() {
 
   return (
     <>
-      {slide && slide.slide ? (
+      {slide && Object.keys(slide).length !== 0 && slide.slide ? (
         <QuickLayout
           mode="dark"
           slide={slide}
           nextClick={nextSlide}
           prevClick={prevSlide}
         />
-      ) : (
-        <Arrows handleNextClick={nextSlide} handlePrevClick={prevSlide} />
-      )}
+      ) : null}
     </>
   );
 }
