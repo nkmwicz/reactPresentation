@@ -1,5 +1,5 @@
 export interface SplitTypes {
-  title: string;
+  title?: string;
   subTitle?: string;
   h1Class?: string;
   headerClass?: string;
