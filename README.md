@@ -9,6 +9,8 @@ This repository provides simple react components for creating a basic slide show
 # Quick Start
 To get started import this package with `npm install react_presentation` or `yarn add react_presentation` and then import the components you want to use. The fastest way to get started is with the `Layout` component. `Layout` includes all the components available and renders them based on a state variable: `slide`. Each `slide` should have a type property that determines what type of slide is rendered. The type property can be `intro`, `split`, `centered`, `child`, or `embed`. The slides are iterable based on an `Arrows` component, which is included in the `Layout` component. See the Arrows component for more information and an example function that can be passed into it.
 
+* N.B. Do not forget to import the CSS file with `import "reactpresentation/dist/style.css"`. The CSS file is necessary for the components to render properly.
+
 ## Props
 ### Slide
 The slide prop takes the following types: 
