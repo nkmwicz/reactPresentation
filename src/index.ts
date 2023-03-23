@@ -7,3 +7,4 @@ export { default as cacheImages } from "./cacheImages";
 export { SplitSlideEmbed } from "./SplitSlideEmbed";
 export { Spinner } from "./Spinner";
 export { QuickLayout } from "./Layout";
+export { SplitText } from "./SplitText";
