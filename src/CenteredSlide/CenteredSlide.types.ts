@@ -1,9 +1,9 @@
 export interface CenteredSlideProps {
   headerClass?: string;
-  title: string;
+  title?: string;
   subTitle?: string;
   images?: Array<{
-    flex: number;
+    opacity: number;
     image: string | null;
     description: string;
   }>;

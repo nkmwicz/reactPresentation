@@ -40,7 +40,7 @@ function CenteredSlide({
               <figure
                 key={`CSfigure${i}`}
                 className={`${imageArrayBoxClass} imgArray-box`}
-                style={a.flex ? { flex: a.flex } : { flex: 1 }}
+                style={a.opacity ? { opacity: a.opacity } : { opacity: 1 }}
               >
                 {a.image && <img src={a.image} alt={a.description} />}
                 <figcaption className="text-center">{a.description}</figcaption>
