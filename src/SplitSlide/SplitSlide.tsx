@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../styling.scss";
+import { SplitTypes } from "./SplitSlide.types";
 /**
  * The SplitSlide component provides a split slide
  * with a quarter of the slide on the left providing space
@@ -42,30 +43,32 @@ function SplitSlide({
         </h1>
       </div>
       <div className="split-container">
-        <div className={leftBoxClass ? leftBoxClass : "left-box"}>
-          {text &&
-            text.map((a: { color: string; text: string }, i: number) => {
-              return (
-                <div
-                  className="left-text-container"
-                  key={`SStextContainer${i}`}
-                >
-                  <p style={{ color: a.color }}>{a.text}</p>
-                </div>
-              );
-            })}
-        </div>
-        <div className={rightBoxClass ? rightBoxClass : "right-box"}>
-          {image && (
-            <figure className={imgBoxClass ? imgBoxClass : "img-right-box"}>
-              <img src={image.image} alt={image.alt} />
-              {image?.description && (
-                <figcaption className="text-center">
-                  {image.description}
-                </figcaption>
-              )}
-            </figure>
-          )}
+        <div className="split-container-wrapper">
+          <div className={leftBoxClass ? leftBoxClass : "left-box"}>
+            {text &&
+              text.map((a: { color: string; text: string }, i: number) => {
+                return (
+                  <div
+                    className="left-text-container"
+                    key={`SStextContainer${i}`}
+                  >
+                    <p style={{ color: a.color }}>{a.text}</p>
+                  </div>
+                );
+              })}
+          </div>
+          <div className={rightBoxClass ? rightBoxClass : "right-box"}>
+            {image && (
+              <figure className={imgBoxClass ? imgBoxClass : "img-right-box"}>
+                <img src={image.image} alt={image.alt} />
+                {image?.description && (
+                  <figcaption className="text-center">
+                    {image.description}
+                  </figcaption>
+                )}
+              </figure>
+            )}
+          </div>
         </div>
       </div>
     </div>
