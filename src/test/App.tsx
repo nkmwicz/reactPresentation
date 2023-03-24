@@ -6,6 +6,7 @@ import {
   SplitSlideChild,
   Arrows
 } from "../index";
+// import "../../dist/style.css";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
