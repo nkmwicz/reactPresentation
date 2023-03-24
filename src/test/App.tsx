@@ -1,10 +1,10 @@
 import React from "react";
 import {
   Spinner,
-  QuickLayout,
   cacheImages,
   SplitSlideChild,
-  Arrows
+  Arrows,
+  QuickLayoutNoArrows
 } from "../index";
 // import "../../dist/style.css";
 
@@ -69,17 +69,12 @@ function App() {
 
   return (
     <>
+      <Arrows handleNextClick={nextSlide} handlePrevClick={prevSlide} />;
       {slide && Object.keys(slide).length !== 0 && slide.slide ? (
-        <QuickLayout
-          mode="dark"
-          slide={slide}
-          nextClick={nextSlide}
-          prevClick={prevSlide}
-        />
+        <QuickLayoutNoArrows mode="dark" slide={slide} />
       ) : null}
       {slide && Object.keys(slide).length !== 0 && slide.child ? (
         <div className="mainDark">
-          <Arrows handleNextClick={nextSlide} handlePrevClick={prevSlide} />
           <SplitSlideChild title={slide.title} text={slide.text}>
             <p>I&apos;m a Child slide</p>
           </SplitSlideChild>
