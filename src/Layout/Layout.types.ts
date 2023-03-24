@@ -34,6 +34,7 @@ export interface LayoutTypes {
   rightBoxClass?: string;
   imgBoxClass?: string;
   contentBoxClass?: string;
+  contentBoxEmbedClass?: string;
   contentTextClass?: string;
   imageArrayBoxClass?: string;
   bgImage?: React.CSSProperties["backgroundImage"];

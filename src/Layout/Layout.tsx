@@ -28,6 +28,7 @@ function Layout({
   imgBoxClass,
   leftBoxClass,
   contentBoxClass,
+  contentBoxEmbedClass,
   contentTextClass,
   imageArrayBoxClass,
   mode
@@ -101,7 +102,7 @@ function Layout({
           title={slide.title}
           subTitle={slide.subTitle}
           embed={slide.embed}
-          contentBoxClass={contentBoxClass}
+          contentBoxEmbedClass={contentBoxEmbedClass}
         />
       )}
     </div>
