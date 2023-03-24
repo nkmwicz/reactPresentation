@@ -7,6 +7,7 @@ export interface LayoutTypes {
     split?: boolean;
     centered?: boolean;
     splitEmbed?: boolean;
+    centeredEmbed?: boolean;
     splitText?: boolean;
     rightText?: string;
     text?: Array<{

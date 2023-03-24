@@ -13,7 +13,8 @@ function App() {
   const [slide, setSlide] = React.useState({
     slide: true,
     title: "Loading",
-    child: false
+    child: false,
+    text: [{ text: "Loading", color: "white" }]
   });
   const [slideIndex, setSlideIndex] = React.useState(0);
 
@@ -76,12 +77,12 @@ function App() {
         />
       ) : null}
       {slide && Object.keys(slide).length !== 0 && slide.child ? (
-        <>
+        <div className="mainDark">
           <Arrows handleNextClick={nextSlide} handlePrevClick={prevSlide} />
-          <SplitSlideChild>
+          <SplitSlideChild title={slide.title} text={slide.text}>
             <p>I&apos;m a Child slide</p>
           </SplitSlideChild>
-        </>
+        </div>
       ) : null}
     </>
   );

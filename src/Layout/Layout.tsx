@@ -6,6 +6,7 @@ import CenteredSlide from "../CenteredSlide/CenteredSlide";
 import SplitSlideEmbed from "../SplitSlideEmbed/SplitSlideEmbed";
 import { LayoutTypes } from "./Layout.types";
 import { SplitText } from "../SplitText";
+import { CenteredEmbed } from "../CenteredEmbed";
 
 /**
  * Layout is a default layout that uses takes a state array that follows the data model
@@ -93,6 +94,14 @@ function Layout({
           leftBoxClass={leftBoxClass}
           rightBoxClass={rightBoxClass}
           imgBoxClass={imgBoxClass}
+        />
+      )}
+      {slide.centeredEmbed && (
+        <CenteredEmbed
+          title={slide.title}
+          subTitle={slide.subTitle}
+          embed={slide.embed}
+          contentBoxClass={contentBoxClass}
         />
       )}
     </div>
