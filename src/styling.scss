@@ -239,7 +239,7 @@ button:disabled {
 
 .content-images {
   height: 100%;
-  width: 95%;
+  width: calc(100% - ((55px + 1.2vw) * 2));
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -260,7 +260,7 @@ button:disabled {
 
 .content-text {
   height: 100%;
-  width: 95%;
+  width: calc(100% - ((55px + 1.2vw) * 2));
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -305,7 +305,7 @@ button:disabled {
 
 .content-embed {
   height: 100%;
-  width: 90%;
+  width: calc(100% - ((55px + 1.2vw) * 2));
   display: flex;
   align-items: center;
   justify-content: center;
