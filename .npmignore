@@ -1,0 +1,7 @@
+.eslintrc.cjs
+.hintrc
+.index.html
+src/test/*
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
