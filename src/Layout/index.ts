@@ -1,1 +1,1 @@
-export {default as QuickLayout} from "./Layout";
+export { default as QuickLayout } from "./Layout";
